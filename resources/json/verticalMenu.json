@@ -1,0 +1,36 @@
+{
+  "menu": [
+    {
+      "url": "peserta/main",
+      "name": "Dashboard",
+      "i18n": "Dashboard",
+      "class": "waves-effect waves-cyan",
+      "icon": "dashboard",
+      "slug": "dashboard"
+    },
+    {
+      "url": "peserta/index",
+      "name": "List Peserta",
+      "i18n": "List Peserta",
+      "class": "waves-effect waves-cyan",
+      "icon": "person",
+      "slug": "list-peserta"
+    },
+    {
+      "url": "peserta/add",
+      "name": "Add Peserta",
+      "i18n": "Add Peserta",
+      "class": "waves-effect waves-cyan",
+      "icon": "person",
+      "slug": "add-peserta"
+    },
+    {
+      "url": "peserta/calendar",
+      "name": "Calendar",
+      "i18n": "Calendar",
+      "class": "waves-effect waves-cyan",
+      "icon": "perm_contact_calendar",
+      "slug": "calendar"
+    }
+  ]
+}
