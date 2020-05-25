@@ -25,7 +25,7 @@
       <div class="col s12 m7">
         <div class="display-flex media">
           <a href="#" class="avatar">
-            <img src="{{asset('images/peserta/'.$peserta->imageurl)}}" alt="users view avatar" class="materialboxed z-depth-4 circle animated fadeInLeft delay-1s"
+            <img src="{{asset('images/peserta/'.$peserta->imageurl)}}" alt="users view avatar" class="z-depth-4 circle animated fadeInLeft delay-1s"
               height="128" width="128">
           </a>
           <div class="media-body ml-4 animated fadeInLeft delay-1s">
@@ -173,9 +173,4 @@
 
 {{-- page scripts --}}
 @section('page-script')
-<script type="text/javascript">
-  $(document).ready(function(){
-    $('.materialboxed').materialbox();
-  });
-</script>
 @endsection

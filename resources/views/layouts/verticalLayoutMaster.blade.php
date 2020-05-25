@@ -37,8 +37,6 @@
         <div class="container">
           {{-- main page content --}}
           @yield('content')
-          {{-- right sidebar --}}
-          @include('pages.sidebar.right-sidebar')
         </div>
         {{-- overlay --}}
         <div class="content-overlay"></div>
