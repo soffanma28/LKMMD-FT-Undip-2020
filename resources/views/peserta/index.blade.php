@@ -35,101 +35,6 @@
 {{-- page content --}}
 @section('content')
 <div class="row datatable-wrapper">
-  <!-- <div class="col s12 m12 l12">
-    <div class="card-panel">
-      <div class="row">
-        <form>
-          <div class="col s12 m6 l3">
-            <label for="users-list-verified">Verified</label>
-            <div class="input-field">
-              <select class="select2 browser-default" name="delegasi">
-                  <option value="" selected>Delegasi</option>
-                  <option value="HMTL">HMTL</option>
-                  <option value="HMTI">HMTI</option>
-                  <option value="HMM">HMM</option>
-                  <option value="HME">HME</option>
-                  <option value="HMTK">HMTK</option>
-                  <option value="HIMASPAL">HIMASPAL</option>
-                  <option value="HIMASKOM">HIMASKOM</option>
-                  <option value="HMTG Magmadipa">HMTG Magmadipa</option>
-                  <option value="HM Teknik Geodesi">HM Teknik Geodesi</option>
-                  <option value="HMTP">HMTP</option>
-                  <option value="HMS">HMS</option>
-                  <option value="PSMT">PSMT</option>
-                  <option value="Izzati">Izzati</option>
-                  <option value="PMK">PMK</option>
-                  <option value="PRMK">PRMK</option>
-                  <option value="Momentum">Momentum</option>
-                  <option value="FST">FST</option>
-                  <option value="BEM FT">BEM FT</option>
-                  <option value="SM FT">SM FT</option>
-                  <option value="NON FT">NON FT</option>
-              </select>
-            </div>
-          </div>
-          <div class="col s12 m6 l3">
-            <label for="users-list-role">Role</label>
-            <div class="input-field">
-              <select class="select2 browser-default" name="delegasi">
-                  <option value="" selected>Delegasi</option>
-                  <option value="HMTL">HMTL</option>
-                  <option value="HMTI">HMTI</option>
-                  <option value="HMM">HMM</option>
-                  <option value="HME">HME</option>
-                  <option value="HMTK">HMTK</option>
-                  <option value="HIMASPAL">HIMASPAL</option>
-                  <option value="HIMASKOM">HIMASKOM</option>
-                  <option value="HMTG Magmadipa">HMTG Magmadipa</option>
-                  <option value="HM Teknik Geodesi">HM Teknik Geodesi</option>
-                  <option value="HMTP">HMTP</option>
-                  <option value="HMS">HMS</option>
-                  <option value="PSMT">PSMT</option>
-                  <option value="Izzati">Izzati</option>
-                  <option value="PMK">PMK</option>
-                  <option value="PRMK">PRMK</option>
-                  <option value="Momentum">Momentum</option>
-                  <option value="FST">FST</option>
-                  <option value="BEM FT">BEM FT</option>
-                  <option value="SM FT">SM FT</option>
-                  <option value="NON FT">NON FT</option>
-              </select>
-            </div>
-          </div>
-          <div class="col s12 m6 l3">
-            <label for="users-list-status">Status</label>
-            <div class="input-field">
-              <select class="select2 browser-default" name="delegasi">
-                  <option value="" selected>Delegasi</option>
-                  <option value="HMTL">HMTL</option>
-                  <option value="HMTI">HMTI</option>
-                  <option value="HMM">HMM</option>
-                  <option value="HME">HME</option>
-                  <option value="HMTK">HMTK</option>
-                  <option value="HIMASPAL">HIMASPAL</option>
-                  <option value="HIMASKOM">HIMASKOM</option>
-                  <option value="HMTG Magmadipa">HMTG Magmadipa</option>
-                  <option value="HM Teknik Geodesi">HM Teknik Geodesi</option>
-                  <option value="HMTP">HMTP</option>
-                  <option value="HMS">HMS</option>
-                  <option value="PSMT">PSMT</option>
-                  <option value="Izzati">Izzati</option>
-                  <option value="PMK">PMK</option>
-                  <option value="PRMK">PRMK</option>
-                  <option value="Momentum">Momentum</option>
-                  <option value="FST">FST</option>
-                  <option value="BEM FT">BEM FT</option>
-                  <option value="SM FT">SM FT</option>
-                  <option value="NON FT">NON FT</option>
-              </select>
-            </div>
-          </div>
-          <div class="col s12 m6 l3 display-flex align-items-center show-btn">
-
-          </div>
-        </form>
-      </div>
-    </div>
-  </div> -->
   <div class="col s12 m12 l12 datatable-table animated fadeIn slow">
       <div class="section">
         <div class="card border-radius-6">
@@ -151,6 +56,8 @@
                         <th>NIM</th>
                         <th>Jurusan</th>
                         <th>Delegasi</th>
+                        <th>KBK</th>
+                        <th>Kelompok</th>
                         <th>TTL</th>
                         <th>Email</th>
                         <th>Jenis Kelamin</th>
@@ -165,8 +72,6 @@
                         <th>Twitter</th>
                         <th>LinkedIn</th>
                         <th>Github</th>
-                        <!-- <th>KBK</th> -->
-                        <!-- <th>Kelompok</th> -->
                         <th>Action</th>
                       </tr>
                     </thead>
@@ -179,6 +84,8 @@
                           <td>{{ $peserta->nim }}</td>
                           <td>{{ $peserta->jurusan }}</td>
                           <td>{{ $peserta->delegasi }}</td>
+                          <td>{{ $peserta->kbk }}</td>
+                          <td>{{ $peserta->kelompok }}</td>
                           <td>{{ $peserta->tempat_lahir }}, {{ $peserta->tanggal_lahir->format('d M Y') }}</td>
                           <td>{{ $peserta->email }}</td>
                           <td>{{ $peserta->jenis_kelamin }}</td>
@@ -193,8 +100,6 @@
                           <td>{{ $peserta->twitter }}</td>
                           <td>{{ $peserta->linkedin }}</td>
                           <td>{{ $peserta->github }}</td>
-                          <!-- <td>{{ $peserta->kbk }}</td> -->
-                          <!-- <td>{{ $peserta->kelompok }}</td> -->
                           <td style="width: 170px;">
                             <a href="{{ route('peserta.edit', $peserta->id) }}" class="btn amber lighten-1 btnAction waves-effect waves-dark tooltipped" data-position="bottom" data-tooltip="Edit"><i class="material-icons">edit</i></a>
                             @if(auth()->user()->id == 1)
@@ -282,13 +187,13 @@
             extend : 'excel',
             text : 'Export to Excel',
             exportOptions: {
-                columns: [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 15, 16, 17, 18, 19 ]
+                columns: [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 15, 16, 17, 18, 19, 20, 21 ]
             }
           },
         ],
         columnDefs : [
           {
-              "targets" : [ 2, 7, 8, 9, 10, 11, 12, 13, 15, 16, 17, 18, 19 ],
+              "targets" : [ 2, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21 ],
               "visible" : false,
               "searchable" : false
           },

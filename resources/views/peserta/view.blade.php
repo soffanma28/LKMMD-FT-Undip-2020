@@ -2,7 +2,7 @@
 @extends('layouts.contentLayoutMaster')
 
 {{-- page title --}}
-@section('title','Detail')
+@section('title','Detail Peserta')
 
 {{-- vendor styles --}}
 @section('vendor-style')
@@ -14,18 +14,24 @@
   .collection .collection-item.avatar {
     min-height: 64px;
   }
+  .section {
+    font-family: 'Lato', sans-serif;
+  }
+  .section h1,h2,h3,h4,h5,h6 {
+    font-family: 'Lato', sans-serif;
+  }
 </style>
 @endsection
 
 {{-- page content --}}
 @section('content')
 <div class="section">
-  <div class="card-panel mb-0 animated fadeInLeft">
+  <div class="card-panel mb-0">
     <div class="row">
       <div class="col s12 m7">
         <div class="display-flex media">
           <a href="#" class="avatar">
-            <img src="{{asset('images/peserta/'.$peserta->imageurl)}}" alt="users view avatar" class="z-depth-4 circle animated fadeInLeft delay-1s"
+            <img src="{{asset('images/peserta/'.$peserta->imageurl)}}" alt="users view avatar" class="materialboxed z-depth-4 circle animated fadeInLeft delay-1s"
               height="128" width="128">
           </a>
           <div class="media-body ml-4 animated fadeInLeft delay-1s">
@@ -37,13 +43,14 @@
               <i class="fas fa-venus" style="color: #f06292"></i>
               @endif
             </h4>
-            <h5 class="users-view-id">{{$peserta->delegasi}}</h5>
+            <h5 class="users-view-id deep-purple-text" style="font-weight: 600;">{{$peserta->delegasi}}</h5>
+            <h6 class="users-view-id">{{$peserta->kbk}}</h6>
           </div>
         </div>
       </div>
       <div class="col s12 m5 animated fadeInRight delay-1s">
         <h6>About Me</h6>
-        <p>{{ $peserta->bio }}</p>
+        <p>{!! $peserta->bio !!}</p>
         <!-- <a href="#" class="btn-small btn-light-indigo"><i class="material-icons">mail_outline</i></a> -->
       </div>
     </div>
@@ -53,7 +60,7 @@
   <div class="col s12 m12 l6 pl-1 pr-1 animated fadeInUp">
     <div class="card">
       <div class="card-content">
-        <h6 class="mb-2 mt-2"><i class="material-icons deep-purple-text">error_outline</i> Personal Info</h6>
+        <h6 class="mb-2 mt-1"><i class="material-icons deep-purple-text">error_outline</i> Personal Info</h6>
         <div class="row">
           <div class="col s12 m12 l12">
             <ul class="collection">
@@ -92,11 +99,11 @@
                 <span class="title orange-text"><b>Email</b></span>
                 <p>{{$peserta->email}}</p>
               </li>
-              <li class="collection-item avatar animated fadeInUp delay-1s">
+              <!-- <li class="collection-item avatar animated fadeInUp delay-1s">
                 <i class="material-icons circle" style="color: #ff9800;background-color: #FFFFFF;">public</i>
                 <span class="title orange-text"><b>Agama</b></span>
                 <p>{{$peserta->agama}}</p>
-              </li>
+              </li> -->
               <li class="collection-item avatar animated fadeInUp delay-1s">
                 <i class="material-icons circle" style="color: #ff9800;background-color: #FFFFFF;">favorite</i>
                 <span class="title orange-text"><b>Hobi</b></span>
@@ -117,7 +124,12 @@
   <div class="col s12 m12 l6 pl-1 pr-1 animated fadeInRight">
     <div class="card">
       <div class="card-content">
-        <h6 class="mb-2 mt-2"><i class="material-icons deep-purple-text">link</i> Social Links</h6>
+        <h6 class="mb-2 mt-2 deep-purple-text">Kelompok : {{ $peserta->kelompok }}</h6>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-content">
+        <h6 class="mb-2 mt-0"><i class="material-icons deep-purple-text">link</i> Social Links</h6>
         <div class="row">
           <div class="col s12 m12 l12">
             <a target="_blank" href="https://www.instagram.com/{{$peserta->instagram}}" class="col s6 m6 l4 center animated fadeInRight delay-1s slow">
@@ -173,4 +185,9 @@
 
 {{-- page scripts --}}
 @section('page-script')
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.materialboxed').materialbox();
+  });
+</script>
 @endsection

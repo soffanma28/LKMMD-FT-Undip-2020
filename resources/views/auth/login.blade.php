@@ -7,6 +7,12 @@
 {{-- page style --}}
 @section('page-style')
 <link rel="stylesheet" type="text/css" href="{{asset('css/pages/login.css')}}">
+<style type="text/css">
+    body {
+        background-image: url('images/undipwp.jpg') !important;
+        background-size: contain;
+    }
+</style>
 @endsection
 
 {{-- page content --}}
@@ -16,8 +22,13 @@
         <form class="login-form" method="POST" action="{{ route('login') }}">
             @csrf
             <div class="row">
-                <div class="input-field col s12">
-                    <h5 class="ml-4">{{ __('Sign in') }}</h5>
+                <div class="input-field col s12 mt-6">
+                    <a href="{{ route('peserta.main') }}" class="center" style="display: inline-flex;height: 56px;width: auto;align-items: center;justify-content: center;">
+                        <img class="hide-on-med-and-down center" width="48" src="{{asset('images/logo/logolkmmdftundip2020HD.png')}}" alt="logo lkmmdft" />
+                        <span class="center pl-2" style="font-size: 32px;font-style: bold;font-weight: 700;">LKMMD FT UNDIP 2020</span>
+                        <img class="hide-on-med-and-down center" width="64" src="{{asset('images/logo/logoundip.png')}}" alt="logo lkmmdft" />
+                    </a>
+                    <h5 class="mb-0 mt-6 ml-4">LOGIN</h5>
                 </div>
             </div>
             <div class="row margin">
@@ -59,7 +70,7 @@
             <div class="row">
                 <div class="input-field col s12">
                     <button type="submit"
-                        class="btn waves-effect waves-light border-round gradient-45deg-purple-deep-orange col s12">Login
+                        class="btn waves-effect waves-light border-round gradient-45deg-indigo-purple col s12">Login
                     </button>
                 </div>
             </div>

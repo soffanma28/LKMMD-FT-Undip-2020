@@ -81,16 +81,16 @@
 							    </div>
 							    <div class="input-field animated fadeInRight delay-1s col s12 m12 l12">
 			              			<input type="text" name="asal" id="asal" class="validate" required>
-					            	<label for="asal">Asal</label>
+					            	<label for="asal">Asal Daerah</label>
+							    </div>
+							    <div class="input-field animated fadeInRight delay-1s col s12 m12 l12">
+			              			<input type="text" name="alamat_kost" id="alamat_kost" class="validate" required>
+					            	<label for="alamat_kost">Alamat Kost</label>
 							    </div>
 			              	</div>
 		              	</div>
 		              	<div class="col s12 m12 l6">
 		              		<div class="row">
-		              			<div class="input-field animated fadeInRight delay-1s col s12 m12 l12">
-			              			<input type="text" name="alamat_kost" id="alamat_kost" class="validate" required>
-					            	<label for="alamat_kost">Alamat Kost</label>
-							    </div>
 		              			<div class="input-field animated fadeInRight delay-1s col s12 m12 l6">
 			              			<select class="select2 browser-default" name="jurusan" required>
 									    <option value="" selected>Jurusan</option>
@@ -106,11 +106,14 @@
 									    <option value="Teknik Geodesi">Teknik Geodesi</option>
 									    <option value="Teknik Geologi">Teknik Geologi</option>
 									    <option value="Teknik Komputer">Teknik Komputer</option>
-									    <option value="NON FT">NON FT</option>
+									    <option value="(FKM) Kesehatan Masyarakat">(FKM) Kesehatan Masyarakat</option>
+									    <option value="(FPIK) Ilmu kelautan">(FPIK) Ilmu kelautan</option>
+									    <option value="(FISIP) Administrasi Bisnis">(FISIP) Administrasi Bisnis</option>
+									    <option value="(SV) D4 Teknik Infrastruktur Sipil dan Perancangan Arsitektur">(SV) D4 Teknik Infrastruktur Sipil dan Perancangan Arsitektur</option>
 									</select>
 							    </div>
 							    <div class="input-field animated fadeInRight delay-1s col s12 m12 l6">
-			              			<select class="select2 browser-default" name="delegasi">
+			              			<select class="select2 browser-default" name="delegasi" required>
 									    <option value="" selected>Delegasi</option>
 									    <option value="HMTL">HMTL</option>
 									    <option value="HMTI">HMTI</option>
@@ -121,6 +124,7 @@
 									    <option value="HIMASKOM">HIMASKOM</option>
 									    <option value="HMTG Magmadipa">HMTG Magmadipa</option>
 									    <option value="HM Teknik Geodesi">HM Teknik Geodesi</option>
+									    <option value="HMA Amoghasida">HMA Amoghasida</option>
 									    <option value="HMTP">HMTP</option>
 									    <option value="HMS">HMS</option>
 									    <option value="PSMT">PSMT</option>
@@ -135,25 +139,34 @@
 									</select>
 							    </div>
 							    <!-- KBK & Kelompok  -->
-							    <!-- <div class="input-field animated fadeInRight delay-1s col s12 m12 l9">
-			              			<select class="select2 browser-default" name="kbk" required>
+							    <div class="input-field animated fadeInRight delay-1s col s12 m12 l9">
+			              			<select id="kbk" class="select2 browser-default" name="kbk">
 									    <option value="" selected>KBK</option>
 									    <option value="KWU (Kewirausahaan)">KWU (Kewirausahaan)</option>
 									    <option value="PM (Pemberdayaan Masyarakat)">PM (Pemberdayaan Masyarakat)</option>
 									    <option value="RINOV (Riset dan Inovasi)">RINOV (Riset dan Inovasi)</option>
 									    <option value="PR (Public Relation)">PR (Public Relation)</option>
 									    <option value="PKP (Politik Kebijakan Publik)">PKP (Politik Kebijakan Publik)</option>
-									    <option value="MMRO (Manajemen Manusia dan Rekayasa Organisasi">MMRO (Manajemen Manusia dan Rekayasa Organisasi)</option>
+									    <option value="MMRO (Manajemen Manusia dan Rekayasa Organisasi)">MMRO (Manajemen Manusia dan Rekayasa Organisasi)</option>
 									</select>
 							    </div>
 							    <div class="input-field animated fadeInRight delay-1s col s12 m12 l3">
-			              			<select class="select2 browser-default" name="kelompok" required>
+			              			<select id="kelompok" class="select2 browser-default" name="kelompok">
 									    <option value="" selected>Kelompok</option>
 									    <option value="1">1</option>
+									    <option value="2">2</option>
+									    <option value="3">3</option>
+									    <option value="4">4</option>
+									    <option value="5">5</option>
+									    <option value="6">6</option>
+									    <option value="7">7</option>
+									    <option value="8">8</option>
+									    <option value="9">9</option>
+									    <option value="10">10</option>
 									</select>
-							    </div> -->
+							    </div>
 		              			<div class="input-field col s12 m12 l12">
-			              			<select id="agama" name="agama">
+			              			<select id="agama" name="agama" required>
 								      <option value="" disabled selected>Choose your option</option>
 								      <option value="Islam">Islam</option>
 								      <option value="Kristen Protestan">Kristen Protestan</option>
@@ -161,6 +174,7 @@
 								      <option value="Hindu">Hindu</option>
 								      <option value="Buddha">Buddha</option>
 								      <option value="Kong Hu Cu">Kong Hu Cu</option>
+								      <option value="Other">Other</option>
 								    </select>
 								    <label for="agama">Agama</label>
 							    </div>
@@ -270,7 +284,9 @@
 		$('#upload-avatar').on('update.croppie', function(ev, cropData) {
 			$uploadCrop.croppie('result', {
 			    type: 'canvas',
-			    size: 'viewport'
+			    format : 'png',
+			    quality : 0.8,
+			    size: {	width: 700, height: 700}
 			}).then(function (resp) {
 			    $('#avatar').val(resp);
 			});

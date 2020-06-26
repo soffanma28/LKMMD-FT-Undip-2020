@@ -3,7 +3,7 @@
 <!-- BEGIN VENDOR JS-->
 <!-- BEGIN PAGE VENDOR JS-->
 <script src="{{asset('vendors/formatter/jquery.formatter.min.js')}}"></script>
-<script src="{{asset('vendors/croppie/js/croppie.min.js')}}"></script>
+<script src="{{asset('vendors/croppie/js/croppie.js')}}"></script>
 @yield('vendor-script')
 @include('sweetalert::alert')
 <!-- END PAGE VENDOR JS-->

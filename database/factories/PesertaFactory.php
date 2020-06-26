@@ -14,6 +14,7 @@ $factory->define(Peserta::class, function (Faker $faker) {
         'email' => $faker->email,
         'alamat_kost' => $faker->address,
         'jurusan' => $faker->randomElement($array = array('Teknik Komputer','Teknik Elektro','Teknik Mesin','Teknik Sipil','Arsitektur')),
+        'kbk' => $faker->randomElement($array = array('KWU (Kewirausahaan)','PM (Pemberdayaan Masyarakat)','RINOV (Riset dan Inovasi)','PR (Public Relation)','PKP (Politik Kebijakan Publik)','MMRO (Manajemen Manusia dan Rekayasa Organisasi)')),
         'delegasi' => $faker->randomElement($array = array('HIMASKOM','HMTL','HMTI','HMM','HMTK','HME','HIMASPAL','HMTP','HMS','FST')),
         'asal' => $faker->state,
         'jenis_kelamin' => $faker->randomElement($array = array('Laki - Laki','Perempuan')),

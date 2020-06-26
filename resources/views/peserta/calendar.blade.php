@@ -28,7 +28,7 @@
   <div class="calendar-filter animated slideInDown slow">
     <div class="card-panel pt-1 pb-1">
       <div class="row">
-        <form method="GET" action="{{ route('peserta.calendar') }}">
+        <form method="POST" action="{{ route('peserta.calendar') }}">
           @csrf
             <div class="input-field col s12 m6 l4 animated zoomIn slow">
               <select id="delegasi" class="select2 browser-default" name="delegasi">
@@ -88,6 +88,7 @@
     <div class="card-content">
       <h5 class="center" id="name" style="color: #3F51B5;"></h5>
       <h5 class="center" id="date" style="color: #3F51B5;"></h5>
+      <a id="viewp" href="" class="btn btn-small">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;View Profile&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
     </div>
   </div>
 </div>
@@ -110,12 +111,19 @@
 <script type="text/javascript">
   var events = [
     @foreach($pesertas as $event)
+    <?php 
+      $show = date('d-F-Y', strtotime($event->tanggal_lahir)); 
+      $date = strtotime($event->tanggal_lahir);
+      $day = date('d', $date);
+      $month = date('m', $date);
+      $year = date('Y', $date);
+      $currentyear = date('Y');
+    ?>
     {
       'id' : <?php echo $event->id ?>,
       'title' : "{{$event->nama}}'s Birthday",
-      'start' : "{{$event->tanggal_lahir}}",
-      'name' : "{{$event->nama}}",
-      'end' : ""
+      'start' : "<?php echo $currentyear ?>-<?php echo $month ?>-<?php echo $day ?>",
+      'name' : "{{$event->nama}}"
     },
     @endforeach
   ];
@@ -123,6 +131,10 @@
 /*-------- */
 
 $(document).ready(function () {
+
+  if ($('#delegasi').find("option[value='{{ $delegasi }}']").length) {
+      $('#delegasi').val("{{ $delegasi }}").trigger('change');
+  }
 
   $(".select2").select2({
     /* the following code is used to disable x-scrollbar when click in select input and
@@ -139,9 +151,9 @@ $(document).ready(function () {
   var basicCal = document.getElementById('basic-calendar');
   var fcCalendar = new FullCalendar.Calendar(basicCal, {
     header: {
-      left: 'prev,next',
+      left: 'listYear,listMonth, dayGridMonth',
       center: 'title',
-      right: 'listYear,listMonth'
+      right: 'today prev,next'
     },
     views: {
       listMonth: {
@@ -151,8 +163,8 @@ $(document).ready(function () {
         buttonText: 'list year'
       }
     },
-    defaultView: 'listYear',
-    defaultDate: '2001-01-01',
+    defaultView: 'dayGridMonth',
+    defaultDate: new Date(),
     editable: false,
     plugins: ["dayGrid", "interaction", "list"],
     eventLimit: true, // allow "more" link when too many events
@@ -163,7 +175,9 @@ $(document).ready(function () {
       $('#modalTitle').text(event.title);
       $('#name').text(event.event.extendedProps.name);
       $('#date').text(new Date(event.event.start).toLocaleDateString("en-US", options));
-      
+      var url = '{{ route("peserta.view", ":id") }}';
+      url = url.replace(':id', event.event.id);
+      document.getElementById('viewp').href = url;
 
       var elem = document.getElementById('modalEventView')
       var instance = M.Modal.init(elem);

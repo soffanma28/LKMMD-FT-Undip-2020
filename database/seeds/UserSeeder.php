@@ -15,14 +15,14 @@ class UserSeeder extends Seeder
             'name' => 'Super Admin',
             'username' => 'superadmin',
             'email' => 'superadmin@admin.com',
-            'password' => bcrypt('4dm1ndasarft'),
+            'password' => bcrypt('admin'),
             'user_type' => 'superadmin',
         ]);
         DB::table('users')->insert([
             'name' => 'Admin',
             'username' => 'admin',
             'email' => 'admin@admin.com',
-            'password' => bcrypt('admindasarft2020'),
+            'password' => bcrypt('admin'),
             'user_type' => 'admin',
         ]);
         DB::table('users')->insert([
